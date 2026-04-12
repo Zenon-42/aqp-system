@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Air Quality Prediction System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">🌙</button>
+
+    <h1>🌍 Air Quality Prediction</h1>
+
+    <div class="search-box">
+        <input type="text" id="cityInput" placeholder="Enter city name">
+        <button onclick="getAQI()">Check AQI</button>
+    </div>
+
+    <div id="result" class="hidden">
+        <h2 id="cityName"></h2>
+        <div id="aqiStatus" class="status"></div>
+
+        <div class="cards">
+            <div class="card">PM2.5: <span id="pm25"></span></div>
+            <div class="card">PM10: <span id="pm10"></span></div>
+            <div class="card">NO₂: <span id="no2"></span></div>
+            <div class="card">SO₂: <span id="so2"></span></div>
+        </div>
+
+        <div class="charts">
+            <canvas id="pollutantChart"></canvas>
+            <canvas id="indexChart"></canvas>
+        </div>
+
+        <h3>📈 Model Accuracy Comparison</h3>
+        <canvas id="modelChart"></canvas>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
